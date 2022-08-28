@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/Betttermee/TwitterBanner/issues"
   },
-  "homepage": "https://github.com/Betttermee/TwitterBanner#readme"
+  "homepage": "https://github.com/Betttermee/TwitterBanner#readme",
+  "dependencies": {
+    "twitter-api-v2": "^1.12.5"
+  }
 }
