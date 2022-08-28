@@ -1,7 +1,15 @@
-const client = require("./twitterClient");
+const {getFollowers, getProfileImageUrl} = require("./twitterController");
+const {saveImage} = require("./imageController");
 
-async function testTweet() {
-    await client.v2.tweet("Hi, I am Building a twitter bot")
+
+async function generateBanner() {
+    const followers = await getFollowers()
+
+    for(const follower of followers) {
+        const url = await getProfileImageUrl(follower.id)
+        await saveImage(follower.id, url)
+    }
+
 }
 
-testTweet()
+generateBanner()
