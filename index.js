@@ -1,6 +1,14 @@
 const {getFollowers, getProfileImageUrl, updateBanner} = require("./twitterController");
 const {saveImage, createBanner} = require("./imageController");
+const CronJob = require("cron").CronJob
 
+console.log('starting node app')
+const job = new CronJob('* * * * *', async function() {
+    console.log('starting generating banner')
+    generateBanner()
+})
+
+job.start()
 
 async function generateBanner() {
     const followers = await getFollowers()
@@ -14,4 +22,3 @@ async function generateBanner() {
     await updateBanner()
 }
 
-generateBanner()

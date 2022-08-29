@@ -21,7 +21,7 @@ async function createBanner() {
     for (const avatar of files) {
         const imgPath = `./images/${avatar}`
         const image = await Jimp.read(imgPath)
-        const position = 850 + index * (50 + 10);
+        const position = 1000 + index * (50 + 10);
         banner.composite(image,position, 380);
 
         index++
