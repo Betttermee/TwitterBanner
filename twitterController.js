@@ -10,4 +10,11 @@ async function getProfileImageUrl(user_id) {
     return profile_image_url
 }
 
-module.exports = {getFollowers, getProfileImageUrl}
+async function updateBanner() {
+    await client.v1.updateAccountProfileBanner("./final.png", {
+        width: 1500,
+        height: 500
+    })
+}
+
+module.exports = {getFollowers, getProfileImageUrl, updateBanner}

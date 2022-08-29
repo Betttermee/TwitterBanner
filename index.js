@@ -1,5 +1,5 @@
-const {getFollowers, getProfileImageUrl} = require("./twitterController");
-const {saveImage} = require("./imageController");
+const {getFollowers, getProfileImageUrl, updateBanner} = require("./twitterController");
+const {saveImage, createBanner} = require("./imageController");
 
 
 async function generateBanner() {
@@ -10,6 +10,8 @@ async function generateBanner() {
         await saveImage(follower.id, url)
     }
 
+    await createBanner()
+    await updateBanner()
 }
 
 generateBanner()
